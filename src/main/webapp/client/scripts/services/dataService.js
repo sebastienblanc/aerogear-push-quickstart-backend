@@ -23,7 +23,7 @@ aerodoc.factory("dataService", function() {
 			name : "auth",
 			settings : {
 				agAuth : true,
-				baseURL : serverUrl + "/aerodoc/rest/",
+				baseURL : serverUrl + "/aerodoc/rest/auth/",
 				endpoints : {
 					enroll : "register",
 					login : "login",
@@ -41,9 +41,9 @@ aerodoc.factory("dataService", function() {
 		}).pipes.leads,
 		leadStore : AeroGear.DataManager({
 			name : "Lead",
-			type : "SessionLocal",
+			type : "IndexedDB",
 			settings : {
-				storageType : "localStorage"
+				auto: true
 			}
 		}).stores.Lead
 	};
